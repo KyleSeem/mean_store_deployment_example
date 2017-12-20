@@ -7,9 +7,11 @@
             <input class="form-control" type="text" ng-model="search.name" placeholder="search...">
         </article>
 
-        <div ng-repeat="alert in alerts">
+        <div ng-if="alerts.length > 0">
             <div class="alert alert-danger">
-                {{ alert }}
+                <div ng-repeat="alert in alerts ">
+                    {{ alert }}
+                </div>
             </div>
         </div>
 
@@ -45,7 +47,7 @@
             <div>
                 <div class="thumbnail">
                     <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
-                    <div class="caption">
+                    <div class="caption"  uib-popover="{{ product.description }}" popover-trigger="'mouseenter'">
                         <p><strong>{{ product.name }}</strong></p>
                         <p>{{ product.qty }} available</p>
                         <!-- <p>{{ product.description }}</p> -->

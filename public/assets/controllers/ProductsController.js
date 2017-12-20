@@ -20,9 +20,9 @@ myApp.controller('ProductsController', ['$scope', 'productFactory', '$location',
     $scope.create = function(){
         $scope.alerts = [];
         productFactory.create($scope.product, function(response){
-            console.log(response);
+            // console.log(response);
             if (response.alerts){
-                $scope.alerts = alerts;
+                $scope.alerts = alerts.reverse();
             }
             else{
                 $scope.product = response;

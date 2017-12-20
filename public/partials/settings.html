@@ -3,29 +3,27 @@
 <section ng-controller='CustomersController'>
     <div class="col-md-8">
         <h4>Customers Table</h4>
-        <scrollable-table>
-            <table class="table table-bordered table-striped table-condensed" style="font-size: .9em;">
-                <thead>
-                    <tr>
-                        <th class="col-md-3">Name</th>
-                        <th class="col-md-3">ID</th>
-                        <th class="col-md-2">Create Date</th>
-                        <th class="col-md-1">Actions</th>
-                    </tr>
-                </thead>
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-md-3">Name</th>
+                    <th class="col-md-3">ID</th>
+                    <th class="col-md-2">Create Date</th>
+                    <th class="col-md-1">Actions</th>
+                </tr>
+            </thead>
 
-                <tbody>
-                    <tr ng-repeat="customer in customers">
-                        <td>{{ customer.name }}</td>
-                        <td>{{ customer._id }}</td>
-                        <td>{{ customer.created_at | date: 'MM/dd/yy' }}</td>
-                        <td>
-                            <button class="btn btn-link" role="button" ng-click="delete(customer._id)">delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </scrollable-table>
+            <tbody style="overflow:scroll;">
+                <tr ng-repeat="customer in customers">
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer._id }}</td>
+                    <td>{{ customer.created_at | date: 'MM/dd/yy' }}</td>
+                    <td>
+                        <button class="btn btn-link" role="button" ng-click="delete(customer._id)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 
@@ -33,33 +31,31 @@
 <section ng-controller='ProductsController'>
     <div class="col-md-12">
         <h4>Products Table</h4>
-        <scrollable-table>
-            <table class="table table-bordered table-striped table-condensed" style="font-size: .9em;">
-                <thead>
-                    <tr>
-                        <th class="col-md-2">Name</th>
-                        <th class="col-md-4">Description</th>
-                        <th class="col-md-1">Image</th>
-                        <th class="col-md-1">Qty</th>
-                        <th class="col-md-3">ID</th>
-                        <th class="col-md-1">Actions</th>
-                    </tr>
-                </thead>
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-md-2">Name</th>
+                    <th class="col-md-4">Description</th>
+                    <th class="col-md-1">Image</th>
+                    <th class="col-md-1">Qty</th>
+                    <th class="col-md-3">ID</th>
+                    <th class="col-md-1">Actions</th>
+                </tr>
+            </thead>
 
-                <tbody>
-                    <tr ng-repeat="product in products">
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.description }}</td>
-                        <td><a href="{{ product.imageUrl }}">image link</a></td>
-                        <td>{{ product.qty }}</td>
-                        <td>{{ product._id }}</td>
-                        <td>
-                            <button class="btn btn-link" role="button" ng-click="delete(product._id)">delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </scrollable-table>
+            <tbody>
+                <tr ng-repeat="product in products">
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td><a href="{{ product.imageUrl }}">image link</a></td>
+                    <td>{{ product.qty }}</td>
+                    <td>{{ product._id }}</td>
+                    <td>
+                        <button class="btn btn-link" role="button" ng-click="delete(product._id)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 
@@ -67,37 +63,35 @@
 <section ng-controller='OrdersController'>
     <div class="col-md-12">
         <h4>Orders Table</h4>
-        <scrollable-table id="lastOne">
-            <table class="table table-bordered table-striped table-condensed" style="font-size: .9em;">
-                <thead>
-                    <tr>
-                        <th>Customer</th>
-                        <th>Product</th>
-                        <th>Qty</th>
-                        <th>ID</th>
-                        <th>Create Date</th>
-                        <th>Associations</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>ID</th>
+                    <th>Create Date</th>
+                    <th>Associations</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-                <tbody>
-                    <tr ng-repeat="order in orders">
-                        <td>{{ order.customer }}</td>
-                        <td>{{ order.product }}</td>
-                        <td>{{ order.qty }}</td>
-                        <td>{{ order._id }}</td>
-                        <td>{{ order.created_at | date: 'MM/dd/yy' }}</td>
-                        <td>
-                            <div class="row">cust: {{ order._customer }}</div>
-                            <div class="row">prod: {{ order._product }}</div>
-                        </td>
-                        <td>
-                            <button class="btn btn-link" role="button" ng-click="delete(order._id)">delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </scrollable-table>
+            <tbody>
+                <tr ng-repeat="order in orders">
+                    <td>{{ order.customer }}</td>
+                    <td>{{ order.product }}</td>
+                    <td>{{ order.qty }}</td>
+                    <td>{{ order._id }}</td>
+                    <td>{{ order.created_at | date: 'MM/dd/yy' }}</td>
+                    <td>
+                        <div class="row">cust: {{ order._customer }}</div>
+                        <div class="row">prod: {{ order._product }}</div>
+                    </td>
+                    <td>
+                        <button class="btn btn-link" role="button" ng-click="delete(order._id)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>

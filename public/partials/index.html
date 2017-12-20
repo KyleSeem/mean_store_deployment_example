@@ -23,10 +23,8 @@
             </article>
         <!-- </div> -->
         <div class="row col-md-offset-5">
-            <!-- show more button adds 5 to visible list, changes to show all -->
+            <!-- show more button adds 5 to visible list, changes to show less when all items are visible -->
             <button class="btn btn-link" ng-hide="results.length === products.length" ng-click="prodLimit = prodLimit +5">show more</button>
-            <!-- show all button makes all items visible, changes to show less -->
-            <!-- <button class="btn btn-link" ng-show="results.length === 10" ng-click="prodLimit = none">show all</button> -->
             <!-- show less returns to original view -->
             <button class="btn btn-link" ng-show="results.length === products.length" ng-click="prodLimit = 5">show less</button>
         </div>

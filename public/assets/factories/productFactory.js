@@ -23,7 +23,7 @@ myApp.factory('productFactory', ['$http', function($http){
         // console.log('received package:', product);
         $http.post('/products/new', product)
         .then(function(response){
-            console.log(response);
+            // console.log(response);
             if (response.data.errors){
                 var err = response.data.errors;
                 for (var msg in err){

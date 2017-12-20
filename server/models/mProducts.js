@@ -1,5 +1,3 @@
-// console.log('Connection to back-end models successful');
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -25,45 +23,8 @@ const ProductSchema = new mongoose.Schema({
         required: [true, 'Product starting quantity required'],
         min: [1, 'Quantity can only accept positive integers'],
     },
-    // decided not to do this for final project, but left as a reference for myself
-    // _orders: [{ type: Schema.Types.ObjectId, ref: 'Orders' }],
 }); // close ProductSchema
 
-const CustomerSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, 'Name cannot be blank'],
-        maxlength: 20,
-        trim: true,
-        unique: true,
-    },
-    created_at: {
-        type: Date,
-        default: Date.now,
-    },
-    // _orders: [{ type: Schema.Types.ObjectId, ref: 'Orders' }],
-}); // close CustomerSchema
-
-const OrderSchema = new mongoose.Schema({
-    customer: {
-        type: String,
-        required: true,
-    },
-    product: {
-        type: String,
-        required: true,
-    },
-    qty: {
-        type: Number,
-        required: [true, 'Please select a quantity'],
-    },
-    created_at: {
-        type: Date,
-        default: Date.now,
-    },
-    _customer: { type: Schema.Types.ObjectId, ref: 'Customers' },
-    _product: { type: Schema.Types.ObjectId, ref: 'Products' },
-}); // close OrderSchema
 
 // use below as starter product database if existing db is empty
 // var Products = mongoose.model('Products', ProductSchema);
@@ -90,9 +51,4 @@ const OrderSchema = new mongoose.Schema({
 //
 // Products.insertMany(arr, function(error, docs) {});
 
-
-// module.exports = {
-//     Customers: mongoose.model('Customers', CustomerSchema),
-//     Products: mongoose.model('Products', ProductSchema),
-//     Orders: mongoose.model('Orders', OrderSchema),
-// };
+module.exports = mongoose.model('Products', ProductSchema);
