@@ -1,0 +1,83 @@
+.container{
+    margin: auto;
+    font-size: 1.1em;
+}
+nav{
+    font-size: 1.25em;
+    position: static;
+}
+div#search{
+    float: right;
+    padding-bottom: 10px;
+}
+div.headerSpacer{
+    background-color: #eceaea;
+}
+table{
+    margin-bottom: 30px;
+}
+    th{
+        text-align: center;
+        background-color: #eceaea;
+    }
+    td {
+        text-align: center;
+    }
+    .scrollArea table tbody tr td{
+        vertical-align: middle;
+
+    }
+p{
+    font-size: 1.15em;
+    padding-bottom: 10px;
+}
+section{
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+section#prodForm{
+    vertical-align: top;
+    display: inline-block;
+    width: 30%;
+}
+section#prodDisplay{
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    overflow: auto;
+}
+div.thumbnail{
+    width: 150px;
+    /*margin-left: 1px;
+    margin-right: 1px;*/
+    margin: 0 1px 2px 1px;
+}
+.thumbnail p{
+    text-align: center;
+    font-size: .9em;
+    padding: 0;
+    margin: 0;
+    margin-left: -3px;
+    margin-right: -3px;
+}
+div.caption{
+    margin-top: -30px;
+}
+li{
+    padding-left: 10px;
+}
+article{
+    padding-bottom: 1.5em;
+}
+article#dashProds{
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+ul{
+    list-style-type: none;
+}
+#lastOne .scrollableContainer{
+    margin-bottom: 50px;
+}

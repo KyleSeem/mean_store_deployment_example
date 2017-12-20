@@ -1,0 +1,49 @@
+<!-- customers partial // has form for adding a new customer // table that shows all customers and the date they were added to the databse // option to delete an existing customer // ability to filter customers in table -->
+
+<main class="col-md-10">
+    <section class="alerts col-md-12">
+        <div class="col-md-6" ng-repeat="alert in alerts">
+            <div class="alert alert-danger">
+                {{ alert }}
+            </div>
+        </div>
+    </section>
+
+<!-- add customer form -->
+    <section>
+        <h4 style="text-decoration: underline; padding-bottom:10px;">Add a new customer</h4>
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="control-label">Customer Name:</label>
+                <input class="form-control" type="text" ng-model="customer.name">
+            </div>
+            <input class="btn btn-primary" type="submit" value="Add" ng-click="create()">
+        </form>
+
+<!-- search box for customer table -->
+        <div id="search">
+            <input class="form-control" type="text" ng-model="search" placeholder="search...">
+        </div>
+
+<!-- customer table -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="customer in customers | orderBy:'-created_at' | filter:search">
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.created_at | date: 'MMMM dd, yyyy' }}</td>
+                    <td>
+                        <button class="btn btn-danger" type="button" ng-click="delete(customer._id)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

@@ -1,0 +1,59 @@
+<!-- index partial - serves as landing page // displays first 5 products with show more link and filter (by name) option // displays 3 most recent orders with show more link // displays 3 most recent customers with show more link -->
+
+
+<!-- first 5 products -->
+<!-- <main style="width:1000px;"> -->
+<main>
+
+    <div class="col-md-3">
+        <input class="form-control" type="text" ng-model="search.name" placeholder="search...">
+    </div>
+    <section class="col-md-offset-3" >
+        <!-- <div class="row"> -->
+            <article id="dashProds" ng-init="prodLimit = 5">
+                <div ng-repeat="product in products | orderBy:'-_id' | filter:search:strict | limitTo: prodLimit as results">
+                    <div class="thumbnail">
+                        <img src="{{ product.imageUrl }}" alt="{{ product.name }}">
+                        <div class="caption">
+                            <p><strong>{{ product.name }}</strong></p>
+                            <p>{{ product.qty }} available</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        <!-- </div> -->
+        <div class="row col-md-offset-5">
+            <!-- show more button adds 5 to visible list, changes to show all -->
+            <button class="btn btn-link" ng-hide="results.length === products.length" ng-click="prodLimit = prodLimit +5">show more</button>
+            <!-- show all button makes all items visible, changes to show less -->
+            <!-- <button class="btn btn-link" ng-show="results.length === 10" ng-click="prodLimit = none">show all</button> -->
+            <!-- show less returns to original view -->
+            <button class="btn btn-link" ng-show="results.length === products.length" ng-click="prodLimit = 5">show less</button>
+        </div>
+    </section>
+
+<!-- last 3 orders -->
+    <section class="col-md-offset-3" ng-init="ordLimit = 3">
+        <h4 style="text-decoration: underline;">Recent Orders</h4>
+        <ul ng-repeat="order in orders | orderBy: '-created_at' | filter:search:strict | limitTo: ordLimit as results ">
+            <li>{{ order.customer }} purchased {{ order.qty }} {{ order.product }}... ( {{ order.daysAgo }} )</li>
+        </ul>
+        <div class="row">
+            <button class="btn btn-link" ng-hide="results.length === orders.length" ng-click="ordLimit = none">show all orders</button>
+            <button class="btn btn-link" ng-show="results.length === orders.length" ng-click="ordLimit = 3">show fewer orders</button>
+        </div>
+    </section>
+
+<!-- last 3 new customers -->
+    <section class="col-md-offset-3" ng-init="custLimit = 3">
+        <h4 style="text-decoration: underline;">New Customers</h4>
+        <ul ng-repeat="customer in customers | orderBy: '-created_at' | filter:search:strict | limitTo: custLimit as results ">
+            <li>{{ customer.name }} joined the store. ( {{ customer.daysAgo }} ) </li>
+        </ul>
+        <div class="row">
+            <button class="btn btn-link" ng-hide="results.length === customers.length" ng-click="custLimit = none">show all customers</button>
+            <button class="btn btn-link" ng-show="results.length === customers.length" ng-click="custLimit = 3">show fewer customers</button>
+        </div>
+    </section>
+
+</main>

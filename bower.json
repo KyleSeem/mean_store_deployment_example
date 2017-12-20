@@ -1,0 +1,25 @@
+{
+  "name": "10_mini-mean_store",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Kyle Seem <kyle.seem@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CodingDojo-MEAN-04-17/KyleSeem",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
+    "angular-scrollable-table": "^1.1.2"
+  },
+  "resolutions": {
+    "angular": "^1.6.6"
+  }
+}
