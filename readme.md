@@ -1,5 +1,7 @@
 # Assignment: Mini-MEAN store
 
+### deployment: http://34.201.67.99/
+
 Guideline: Create a RESTful API using Express and get this to pull/update/delete records from the database!
 
 Wireframes for project included.
