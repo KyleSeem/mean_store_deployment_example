@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const models_path = path.resolve('server', 'models');
 
-mongoose.connect('mongodb://localhost/miniStore_db');
+mongoose.connect('mongodb://localhost/minStr_db', { useMongoClient: true });
 
 mongoose.connection.on('connected', function(){
     // console.log('Connection to mongoose successful');
