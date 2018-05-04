@@ -1,6 +1,7 @@
 # Assignment: Mini-MEAN store
 
-### deployment: http://34.201.67.99/
+### deployment:na 
+-- this was previously deployed using free aws, but the free trial expired --
 
 Guideline: Create a RESTful API using Express and get this to pull/update/delete records from the database!
 
